@@ -1,0 +1,13 @@
+.wrapper {
+  height: 400px;
+  background-color: goldenrod;
+  animation: parallax linear forwards;
+  animation-timeline: view();
+  animation-range: cover 10%;
+}
+
+@keyframes parallax {
+  to {
+    translate: var(--offset-x) var(--offset-y);
+  }
+}

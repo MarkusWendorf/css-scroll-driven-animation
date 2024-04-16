@@ -1,0 +1,59 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(var(--count), 1fr);
+  width: fit-content;
+  overflow: hidden;
+  --speed: 20;
+
+  /* Increases space between items:
+     1 means 1/10 of the item size
+     2 means 2/10 of the item size
+  */
+  --inset: 1;
+
+  /* Determines when the element resets the position to the other side:
+     0 means the items is out of frame by 100% of the item size (hidden by overflow)
+     1 means the items is out of frame by 200% of the item size
+  */
+  --outset: 0;
+}
+
+.wrapper.vertical {
+  flex-direction: column;
+}
+
+.wrapper .item {
+  --origin-x: calc(
+    ((var(--count) - var(--index) - 1) + var(--inset, 0)) * 100%
+  );
+  --origin-y: 0;
+  --destination-x: calc(calc((var(--index) + 1 + var(--outset, 0)) * -100%));
+  --destination-y: 0;
+}
+
+.wrapper.vertical .item {
+  --origin-x: 0;
+  --origin-y: calc(
+    ((var(--count) - var(--index) - 1) + var(--inset, 0)) * 100%
+  );
+  --destination-x: 0;
+  --destination-y: calc(calc((var(--index) + 1 + var(--outset, 0)) * -100%));
+}
+
+.item {
+  width: calc(100vw / var(--count));
+  --duration: calc(var(--speed) * 1s);
+  --delay: calc(
+    (var(--duration) / var(--count)) * (var(--index, 0) - (var(--count) * 0.5))
+  );
+
+  animation: slide var(--duration) calc(var(--delay) - (var(--count) * 0.5s))
+    infinite linear;
+  translate: var(--origin-x) var(--origin-y);
+}
+
+@keyframes slide {
+  100% {
+    translate: var(--destination-x) var(--destination-y);
+  }
+}

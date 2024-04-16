@@ -1,0 +1,28 @@
+.line {
+  width: 100%;
+  margin: 0.6rem;
+  color: transparent;
+  background-image: linear-gradient(to right, #e3f7d3 50%, #3e443c 50%);
+  background-size: 200% 100%;
+  background-clip: text;
+  transform-origin: left;
+  animation: skewed-reveal ease-in-out forwards;
+  animation-timeline: view();
+  animation-range-start: entry;
+  animation-range-end: 55%;
+}
+
+@keyframes skewed-reveal {
+  0% {
+    opacity: 0.3;
+    transform: translate3d(0px, 20px, 0px) rotate(3deg) scale(0.9, 0.9);
+    background-position: 100% 50%;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotate(0deg) scale(1, 1);
+    background-position: 0% 50%;
+  }
+}

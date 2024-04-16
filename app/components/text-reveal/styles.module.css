@@ -1,0 +1,25 @@
+.row {
+  display: flex;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.word {
+  opacity: 0.25;
+  animation: reveal linear forwards;
+  animation-duration: 1s;
+  animation-timeline: view();
+  /* This is not an exact science, fiddle with it */
+  animation-range-start: cover calc((var(--index) + 1) * 8%);
+  animation-range-end: cover calc(5% + (var(--index) + 1) * 8%);
+}
+
+.word:after {
+  content: "\00a0";
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+  }
+}

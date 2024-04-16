@@ -1,0 +1,61 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 5rem;
+  text-transform: uppercase;
+  padding: 3rem;
+  overflow: clip;
+}
+
+.line {
+  width: fit-content;
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    var(--color) 50%,
+    var(--bg-color) 50%
+  );
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  background-clip: text;
+  line-height: 0.85;
+
+  animation: anim cubic-bezier(0.6, 0, 0.36, 0.84) forwards;
+  animation-timeline: view();
+  animation-range-start: cover 5%;
+  /* Animate faster for higher index */
+  animation-range-end: cover calc(65% - (var(--index) * 5%));
+}
+
+.wrapper[data-variant="center"] {
+  align-items: center;
+
+  .line:nth-child(2n) {
+    transform: translateX(-3rem);
+  }
+
+  .line:nth-child(2n + 1) {
+    transform: translateX(3rem);
+  }
+}
+
+.wrapper[data-variant="left"] {
+  .line:nth-child(2n) {
+    transform: translateX(-2rem);
+  }
+
+  .line:nth-child(2n + 1) {
+    transform: translateX(10rem);
+  }
+}
+
+@keyframes anim {
+  85% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 0%;
+    transform: translateX(0px);
+  }
+}

@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Nm";
+  src: url("./fonts/NM-Medium.woff2");
+}
+
+html,
+body {
+  background: #1c211e;
+  margin: 0;
+  color: #e3f7d3;
+  font-family: Nm, serif;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
