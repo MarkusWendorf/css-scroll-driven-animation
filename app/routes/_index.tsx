@@ -4,7 +4,7 @@ import { Reveal } from "~/components/reveal/Reveal";
 import { TextBlur } from "~/components/text-blur/TextBlur";
 import { TextReveal } from "~/components/text-reveal/TextReveal";
 
-export default function About() {
+export default function Index() {
   const lines = [
     "For Green Luberon, I designed an immersive",
     "e-commerce experience, reflecting the brand's",

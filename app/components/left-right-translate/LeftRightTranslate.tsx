@@ -16,7 +16,7 @@ export function LeftRightTranslate<T>({
     <div
       className={styles.wrapper}
       data-variant={variant}
-      style={{ "--color": "white", "--bg-color": "#252525" }}
+      style={{ "--color": "white", "--bg-color": "#4b4a4a" }}
     >
       {items.map((item, i) => (
         <div key={i} className={styles.line} style={{ "--index": i }}>
